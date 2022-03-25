@@ -9,34 +9,30 @@
   <div><h1>Pierre's Bakery!</h1></div>
 </div>
 <div id="index-wrapper">
-  <div id="treats-parent">
-    <div class="all-treats">
-      <h3>Treats:</h3>
-      @if (@Model.Treats.ToList().Count == 0)
-      {
-        <h4>No treats have been added yet!</h4>
-      }
-        <ul>
-          @foreach (Treat treat in @Model.Treats.ToList())
-          {
-            <li>@Html.ActionLink($"{treat.Name}", "Details", "Treats", new { id = treat.TreatId})</li>
-          }
-        </ul>
-    </div>
+  <div class="all-treats">
+    <h3>Treats:</h3>
+    @if (@Model.Treats.ToList().Count == 0)
+    {
+      <h4>No treats have been added yet!</h4>
+    }
+      <ul>
+        @foreach (Treat treat in @Model.Treats.ToList())
+        {
+          <li>@Html.ActionLink($"{treat.Name}", "Details", "Treats", new { id = treat.TreatId})</li>
+        }
+      </ul>
   </div>
-  <div id="flavors-parent">
-    <div class="all-flavors">
-      <h3>Flavors:</h3>
-      @if (@Model.Flavors.ToList().Count == 0)
-      {
-        <h4>No Flavors have been added yet!</h4>
-      }
-        <ul>
-          @foreach (Flavor flavor in @Model.Flavors.ToList())
-          {
-            <li>@Html.ActionLink($"{flavor.Description}", "Details", "Flavors", new { id = flavor.FlavorId})</li>
-          }
-        </ul>
-    </div>
+  <div class="all-flavors">
+    <h3>Flavors:</h3>
+    @if (@Model.Flavors.ToList().Count == 0)
+    {
+      <h4>No Flavors have been added yet!</h4>
+    }
+      <ul>
+        @foreach (Flavor flavor in @Model.Flavors.ToList())
+        {
+          <li>@Html.ActionLink($"{flavor.Description}", "Details", "Flavors", new { id = flavor.FlavorId})</li>
+        }
+      </ul>
   </div>
 </div>
