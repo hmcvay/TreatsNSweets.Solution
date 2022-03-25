@@ -6,6 +6,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using TreatsNSweets.Models;
 
+using Microsoft.AspNetCore.Identity;
+
 namespace TreatsNSweets
 {
   public class Startup
@@ -27,6 +29,22 @@ namespace TreatsNSweets
       services.AddEntityFrameworkMySql()
         .AddDbContext<TreatsNSweetsContext>(options => options
         .UseMySql(Configuration["ConnectionStrings:DefaultConnection"], ServerVersion.AutoDetect(Configuration["ConnectionStrings:DefaultConnection"])));
+
+      services.AddIdentity<ApplicationUser, IdentityRole>()
+        .AddEntityFrameworkStores<TreatsNSweetsContext>()
+        .AddDefaultTokenProviders();
+
+    //PASSWORD OVERRIDE
+      services.Configure<IdentityOptions>(options =>
+      {
+        options.Password.RequireDigit = false;
+        options.Password.RequiredLength = 0;
+        options.Password.RequireLowercase = false;
+        options.Password.RequireNonAlphanumeric = false;
+        options.Password.RequireUppercase = false;
+        options.Password.RequiredUniqueChars = 0;
+
+      });
     }
 
     public void Configure(IApplicationBuilder app)
