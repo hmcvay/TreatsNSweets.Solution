@@ -10,13 +10,21 @@
   border: 2px solid black;
 }
 
-/* .header-content {
-  gap: 50px;
-} */
+#index-header {
+  margin-top: 2%;
+  margin-bottom: 2%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* width: 75%;
+  border: 2px solid black; */
+}
 
 #index-wrapper {
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
   align-items: center;
+  /* width: 75%;
+  border: 2px solid black; */
 }
