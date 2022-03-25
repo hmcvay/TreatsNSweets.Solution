@@ -33,6 +33,8 @@ namespace TreatsNSweets
     {
       app.UseDeveloperExceptionPage();
       app.UseRouting();
+      
+      app.UseAuthorization();
 
       app.UseEndpoints(routes =>
       {
