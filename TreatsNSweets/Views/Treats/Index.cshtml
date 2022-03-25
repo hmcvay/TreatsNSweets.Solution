@@ -3,11 +3,16 @@
 }
 
 @using TreatsNSweets.Models;
-@model IEnumerable<TreatsNSweets.Models.Treat>;
+@using System;
+@model List<TreatsNSweets.Models.Treat>;
 
-<h1>Treats for @User.Identity.Name</h1>
+<h1>Treats</h1>
 
-@if (@Model.Any())
+@if (@Model.Count == 0)
+{
+  <h3>none</h3>
+}
+else
 {
   <ul>
     @foreach (Treat treat in Model)

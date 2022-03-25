@@ -11,7 +11,6 @@ using System.Security.Claims;
 
 namespace TreatsNSweets.Controllers
 {
-  [Authorize]
   public class TreatsController : Controller
   {
     private readonly TreatsNSweetsContext _db;
@@ -23,10 +22,11 @@ namespace TreatsNSweets.Controllers
       _db = db;
     }
 
-    [AllowAnonymous]
+    [Authorize]
     public ActionResult Index()
     {
-      return View(_db.Treats.ToList());
+      List<Treat> model = _db.Treats.ToList();
+      return View(model);
     }
 
     public ActionResult Create()
