@@ -1,8 +1,18 @@
 #header-parent {
   display: flex;
-  justify-content: space-around;
+  flex-direction:row;
   align-items: center;
+  justify-content: center;
+  gap: 100px;
+  width: 100%;
+  height: 100px;
+  background-color: red;
+  border: 2px solid black;
 }
+
+/* .header-content {
+  gap: 50px;
+} */
 
 #index-wrapper {
   display: flex;
