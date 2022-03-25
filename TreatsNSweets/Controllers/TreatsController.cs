@@ -59,6 +59,8 @@ namespace TreatsNSweets.Controllers
       return View(thisTreat);
     }
 
+
+    [Authorize]
     public ActionResult Edit(int id)
     {
       var thisTreat = _db.Treats.FirstOrDefault(treat => treat.TreatId == id);
@@ -78,6 +80,8 @@ namespace TreatsNSweets.Controllers
       return RedirectToAction("Index");
     }
 
+
+    [Authorize]
     public ActionResult AddFlavor(int id)
     {
       var thisTreat = _db.Treats.FirstOrDefault(treat => treat.TreatId == id);
@@ -96,6 +100,8 @@ namespace TreatsNSweets.Controllers
       return RedirectToAction("Index");
     }
 
+
+    [Authorize]
     public ActionResult Delete (int id)
     {
       var thisTreat = _db.Treats.FirstOrDefault(treat => treat.TreatId == id);
@@ -111,6 +117,8 @@ namespace TreatsNSweets.Controllers
       return RedirectToAction("Index");
     }
 
+
+    [Authorize]
     [HttpPost]
     public ActionResult DeleteFlavor(int joinId)
     {

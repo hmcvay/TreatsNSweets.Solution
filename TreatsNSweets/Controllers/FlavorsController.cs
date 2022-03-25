@@ -3,18 +3,26 @@ using TreatsNSweets.Models;
 using System.Collections.Generic;
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
+using System.Threading.Tasks;
+using System.Security.Claims;
 
 namespace TreatsNSweets.Controllers
 {
   public class FlavorsController : Controller
   {
     private readonly TreatsNSweetsContext _db;
+    private readonly UserManager<ApplicationUser> _userManager;
 
-    public FlavorsController(TreatsNSweetsContext db)
+
+    public FlavorsController(UserManager<ApplicationUser> userManager, TreatsNSweetsContext db)
     {
+      _userManager = userManager;
       _db = db;
     }
 
+    [Authorize]
     public ActionResult Index()
     {
       List<Flavor> model = _db.Flavors.ToList();
@@ -43,6 +51,8 @@ namespace TreatsNSweets.Controllers
       return View(thisFlavor);
     }
 
+
+    [Authorize]
     public ActionResult Edit(int id)
     {
       var thisFlavor = _db.Flavors.FirstOrDefault(flavor => flavor.FlavorId == id);
@@ -57,6 +67,8 @@ namespace TreatsNSweets.Controllers
       return RedirectToAction("Index");
     }
 
+
+    [Authorize]
     public ActionResult Delete (int id)
     {
       var thisFlavor = _db.Flavors.FirstOrDefault(flavor => flavor.FlavorId == id);
