@@ -5,7 +5,7 @@
 @using TreatsNSweets.ViewModels
 @model LoginViewModel
 
-<h2>Log in with your account</h2>
+<h2>Log in or Register with your account</h2>
 <hr />
 @using (Html.BeginForm())
 {
@@ -17,3 +17,5 @@
 
   <input type="submit" value="Log in" class="btn btn-default" />
 }
+
+<h3>@Html.ActionLink("Register", "Register")</h3>
