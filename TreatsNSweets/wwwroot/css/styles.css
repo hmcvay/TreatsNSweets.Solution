@@ -1,0 +1,12 @@
+#header-parent {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+#index-wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+}
