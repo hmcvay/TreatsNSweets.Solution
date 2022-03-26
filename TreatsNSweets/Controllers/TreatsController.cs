@@ -31,7 +31,8 @@ namespace TreatsNSweets.Controllers
 
     public ActionResult Create()
     {
-      ViewBag.FlavorId = new SelectList(_db.Flavors, "FlavorId", "Description");
+      // ViewBag.FlavorId = _db.Flavors.FlavorId;
+      // new SelectList(_db.Flavors, "FlavorId", "Description")
       return View();
     }
 
@@ -126,17 +127,7 @@ namespace TreatsNSweets.Controllers
       _db.FlavorTreat.Remove(joinEntry);
       _db.SaveChanges();
       return RedirectToAction("Index");
-    }
-
-    // [HttpPost]
-    // public ActionResult UpdateStatus(int id) 
-    // {
-    //   var thisTreat = _db.Treats.FirstOrDefault(treat => treat.TreatId == id);
-    //   thisTreat.Status = true;
-    //   _db.Entry(thisItem).State = EntityState.Modified;
-    //   _db.SaveChanges();
-    //   return RedirectToAction("Index");
-    // }    
+    }  
 
   }
 }

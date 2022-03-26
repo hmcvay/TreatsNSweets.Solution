@@ -11,8 +11,8 @@
   @Html.LabelFor(model => model.Name)
   @Html.TextBoxFor(model => model.Name, new {required="required"})
 
-  @Html.Label("Select Flavor")
-  @Html.DropDownList("FlavorId")
+  @Html.TextBox("Add Flavor", (String)ViewBag.FlavorId)
+  @* @Html.DropDownList("FlavorId") *@
 
   <input type="submit" value="Add new treat" class="btn btn-default" />
 }
