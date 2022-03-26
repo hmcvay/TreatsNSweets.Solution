@@ -8,7 +8,7 @@
 @using (Html.BeginForm())
 {
   @Html.LabelFor(model => model.Description)
-  @Html.TextBoxFor(model => model.Description)
+  @Html.TextBoxFor(model => model.Description, new {required="required"})
   <input type="submit" value="Add new Flavor" />
 }
 <p>@Html.ActionLink("All Flavors","Index")</p>
