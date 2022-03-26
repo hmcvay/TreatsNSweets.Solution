@@ -31,8 +31,7 @@ namespace TreatsNSweets.Controllers
 
     public ActionResult Create()
     {
-      // ViewBag.FlavorId = _db.Flavors.FlavorId;
-      // new SelectList(_db.Flavors, "FlavorId", "Description")
+      ViewBag.FlavorId = new SelectList(_db.Flavors, "FlavorId", "Description");
       return View();
     }
 
