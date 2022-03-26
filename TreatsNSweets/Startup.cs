@@ -50,6 +50,7 @@ namespace TreatsNSweets
     public void Configure(IApplicationBuilder app)
     {
       app.UseDeveloperExceptionPage();
+      app.UseAuthentication();
       app.UseRouting();
       
       app.UseAuthorization();
